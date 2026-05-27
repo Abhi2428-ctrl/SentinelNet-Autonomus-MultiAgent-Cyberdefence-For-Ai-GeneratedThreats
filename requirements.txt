@@ -1,0 +1,56 @@
+# ══════════════════════════════════════════════════════════
+# SentinelNet v2.0 — Python Dependencies
+# ══════════════════════════════════════════════════════════
+#
+# INSTALL:
+#   pip install -r requirements.txt
+#
+# OS-LEVEL DEPENDENCIES (not pip installable):
+# ┌─────────────────────────────────────────────────────────
+# │ Windows: Install Npcap for live packet capture
+# │   → https://npcap.com/#download
+# │   → Run as Administrator, enable WinPcap-compatible mode
+# │
+# │ Linux:   Install libpcap for live packet capture
+# │   Ubuntu/Debian: sudo apt install -y libpcap-dev tcpdump
+# │   Fedora/RHEL:   sudo dnf install -y libpcap-devel tcpdump
+# │   Arch:          sudo pacman -S libpcap
+# │   OR (no sudo needed after):
+# │     sudo setcap cap_net_raw+eip $(which python3)
+# │
+# │ macOS:   libpcap is built-in — no install needed
+# │   Run with: sudo ./start.sh
+# │   OR:       sudo chmod +r /dev/bpf*  (until reboot)
+# └─────────────────────────────────────────────────────────
+#
+# SCREEN CAPTURE (for Video Call Monitor):
+#   All OS:  pip install mss         ← recommended
+#   Linux:   sudo apt install scrot  ← fallback
+#   macOS:   System Settings → Privacy → Screen Recording → enable Terminal
+#   Windows: Works automatically
+#
+# ══════════════════════════════════════════════════════════
+
+# ── Core (required) ────────────────────────────────────────
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+websockets==12.0
+numpy==1.26.4
+python-multipart==0.0.9
+scapy==2.5.0
+Pillow==10.3.0
+cryptography==42.0.5
+certifi==2024.2.2
+
+# ── Screen capture (cross-platform — strongly recommended) ─
+mss==9.0.1
+
+# ── System monitoring ──────────────────────────────────────
+psutil==5.9.8
+
+# ── AI Detection (required for deepfake/voice/video scanning) ─
+scipy==1.13.0
+opencv-python==4.9.0.80
+
+# ── vcm file system watcher ─────────────────────────
+watchdog==4.0.0
